@@ -1,0 +1,5 @@
+//- Price
+slider.ar-slider(hide-bubble, max-default, floor='{{price.min}}', ceiling='{{price.max}}', translate='currencyFormatting', ng-model-low='searchData.price.min', ng-model-high='searchData.price.max', on-slide-end='onFilterChange', exponential)
+
+span.price-max.pull-right.ng-cloak {{currencyFormatting(searchData.price.max)}}
+span.price-min.ng-cloak {{currencyFormatting(searchData.price.min)}}
