@@ -1,6 +1,7 @@
 {
   "name": "ng-logslider",
   "version": "0.0.1",
+  "description": "AngularJS directive logarithmic slider control.",
   "author": {
     "name": "AllTheRooms",
     "email": "info@alltherooms.com"
@@ -18,8 +19,8 @@
     "ui"
   ],
   "main": [
-    "./dist/ng-logslider.min.js",
-    "./dist/css/ng-logslider.min.css"
+    "./dist/ng-logslider.js",
+    "./dist/css/ng-logslider.css"
   ],
   "dependencies": {
     "angular": "1.3.x"
@@ -30,7 +31,6 @@
   "authors": [
     "nathanredblur <jon.nathan.rich@gmail.com>"
   ],
-  "description": "AngularJS directive logarithmic slider control.",
   "license": "MIT",
   "ignore": [
     "**/.*",

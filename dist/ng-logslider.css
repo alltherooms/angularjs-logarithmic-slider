@@ -1,0 +1,86 @@
+.log-slider {
+  display: block;
+  margin: 0 0 10px;
+  padding-top: 13px;
+}
+.log-slider .sel-bub {
+  color: #5b677a;
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+.log-slider .bub-holder {
+  overflow: hidden;
+}
+.log-slider .bub-holder div {
+  color: #5b677a;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+.log-slider .bub-holder .flr-bub {
+  float: left;
+}
+.log-slider .bub-holder .ceil-bub {
+  float: right;
+}
+.log-slider .full-bar {
+  position: absolute;
+  top: 7px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  height: 6px;
+  border: 2px solid #c7c7c7;
+  background: #8d8d8d;
+}
+.log-slider .full-bar .sel-bar {
+  position: absolute;
+  height: 100%;
+  background: #d8483a;
+}
+.log-slider .point-holder {
+  position: relative;
+  margin-right: 24px;
+}
+.log-slider .point-holder div {
+  position: absolute;
+  margin-top: -2px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #c7c7c7;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+.log-slider .point-holder div:after {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: 4px;
+  letter-spacing: -2.5px;
+  font-size: 11px;
+  line-height: 20px;
+}
+.log-slider .point-holder div:hover {
+  background-color: #c7c7c7;
+}
+.log-slider .point-holder div.active {
+  background-color: #d8483a;
+}
+.log-slider .point-holder div.active:after {
+  color: #fff;
+}
+.log-slider .bar-holder {
+  position: relative;
+  height: 20px;
+}
+.log-slider .bar-holder:before {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: #8d8d8d;
+  content: "";
+}

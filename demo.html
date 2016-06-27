@@ -1,0 +1,88 @@
+<head>
+
+  <link rel="stylesheet" type="text/css" href="dist/ng-logslider.css">
+
+  <!--
+  <link rel="stylesheet" type="text/css" href="dist/ng-logslider.min.css">
+  -->
+
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+
+  <!--
+  <script type="text/javascript" src="dist/ng-logslider.min.js"></script>
+  -->
+
+  <script type="text/javascript" src="dist/ng-logslider.js"></script>
+
+</head>
+<body>
+
+  <div ng-app="myApp" ng-controller="ctrl" style="width:700px;">
+
+    <div
+      log-slider
+      max-default
+      floor='{{options.from}}'
+      ceiling='{{options.to}}'
+      translate='option.dimension'
+      ng-model-low='valueLow'
+      ng-model-high='valueHigh'
+      on-slide-end='option.calback'
+      exponential
+    /></div>
+
+    <div
+      log-slider
+      floor='{{options.from}}'
+      ceiling='{{options.to}}'
+      translate='option.dimension'
+      ng-model-low='valueLow'
+      on-slide-end='option.calback'
+      exponential
+    /></div>
+
+    <div>
+      Current value is: {{valueLow}} and {{valueHigh}}
+    </div>
+    </br>
+    </br>
+
+
+    <div>
+      <input ng-model="value3"  type="text" id="{{id}}" slider ng-disabled="disabled" options="options" />
+    </div>
+    <div>
+      Current value is: {{value3}}
+    </div>
+    </br>
+    </br>
+
+
+
+  </div>
+
+  <script type="text/javascript">
+    "use strict";
+    function ctrl($scope, $filter, $timeout) {
+
+      $scope.valueHigh = 1000;
+      $scope.valueLow = 0;
+
+      $scope.options = {
+        from: 1,
+        to: 1000,
+        step: 1,
+        dimension: function(value){
+          console.log(value);
+          return value.value + "$"
+        },
+        callback: function() {
+          console.log("Yaark");
+        }
+      };
+    }
+
+    var app = angular.module('myApp', ['ngLogSlider']).controller('ctrl', ctrl);
+  </script>
+
+</body>

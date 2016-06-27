@@ -1,0 +1,43 @@
+{
+  "name": "ng-logslider",
+  "version": "0.0.1",
+  "description": "AngularJS directive logarithmic slider control.",
+  "author": {
+    "name": "AllTheRooms",
+    "email": "info@alltherooms.com"
+  },
+  "filename": "./src/ng-logslider.js",
+  "homepage": "https://github.com/alltherooms/angularjs-logarithmic-slider",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alltherooms/angularjs-logarithmic-slider.git"
+  },
+  "keywords": [
+    "angular",
+    "logarithmic",
+    "slider",
+    "control",
+    "ui"
+  ],
+  "bugs": {
+    "url": "https://github.com/alltherooms/angularjs-logarithmic-slider/issues"
+  },
+  "scripts": {
+    "test": "gulp test-continuous"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-babel": "^6.1.2",
+    "babel-core": "^5.6.4",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-preset-es2015": "^6.6.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-clean-css": "^2.0.5",
+    "gulp-stylus": "^2.3.1",
+    "run-sequence": "^1.1.5"
+  }
+}

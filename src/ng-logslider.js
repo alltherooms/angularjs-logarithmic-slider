@@ -73,8 +73,8 @@ let inputEvents = {
 };
 
 // DIRECTIVE DEFINITION
-angular.module('uiSlider', [])
-.directive('slider', $timeout =>
+angular.module('ngLogSlider', [])
+.directive('logSlider', $timeout =>
   ({
     restrict: 'EA',
     scope: {
@@ -92,20 +92,18 @@ angular.module('uiSlider', [])
       precision:   '@'
     },
 
-    template: `  <div class="sel-bub"></div>
-  <div class="bar-holder">
-    <div class="full-bar">
-      <div class="sel-bar"></div>
-    </div>
-    <div class="point-holder">
-      <div class="min-ptr"></div>
-      <div class="max-ptr"></div>
-    </div>
-  </div>
-  <div class="bub-holder">
-    <div class="flr-bub" ng-bind-html="translate({value: floor})"></div>
-    <div class="ceil-bub" ng-bind-html="translate({value: ceiling})"></div>
-  </div>  `,
+    template: `
+    <div class='log-slider'>
+      <div class="bar-holder">
+        <div class="full-bar">
+          <div class="sel-bar"></div>
+        </div>
+        <div class="point-holder">
+          <div class="min-ptr"></div>
+          <div class="max-ptr"></div>
+        </div>
+      </div>
+    </div>`,
     compile(element, attributes) {
 
       // Set default initial state in the max and minimus values avalible
@@ -135,26 +133,11 @@ angular.module('uiSlider', [])
           let selBar = angular.element(elem.querySelector('.sel-bar'));
           let minPtr = angular.element(elem.querySelector('.min-ptr'));
           let maxPtr = angular.element(elem.querySelector('.max-ptr'));
-          let selBub = angular.element(elem.querySelector('.sel-bub'));
-          let flrBub = angular.element(elem.querySelector('.flr-bub'));
-          let ceilBub = angular.element(elem.querySelector('.ceil-bub'));
-
-          if (attributes.hideBubble != null) {
-            selBub.remove();
-            flrBub.remove();
-            ceilBub.remove();
-          }
 
           // Remove range specific elements if not a range slider
           if (range) {
-            if (!(attributes.hideBubble != null)) {
-              selBub.attr('ng-bind-html', `translate({value: ${refLow}}) + ' - ' + translate({value: ${refHigh}})`);
-            }
             var watchables = [refLow, refHigh];
           } else {
-            if (!(attributes.hideBubble != null)) {
-              selBub.attr('ng-bind-html', `translate({value: ${refLow}})`);
-            }
             maxPtr.remove();
             var watchables = [refLow];
           }
@@ -215,7 +198,7 @@ angular.module('uiSlider', [])
             if (event.clientX) {
               var eventX = event.clientX;
             }
-            if (event.originalEvent.touches) {
+            if (event.originalEvent && event.originalEvent.touches) {
               var eventX = event.originalEvent.touches[0].clientX;
             }
             let dimencions = fullBar[0].getBoundingClientRect();
@@ -334,8 +317,9 @@ angular.module('uiSlider', [])
             }
           });
 
-          for (let i = 0; i < watchables.length; i++) { let w = watchables[i];           scope.$watch(w, updateDOM); }
-          return;
+          for (let i = 0; i < watchables.length; i++) { let w = watchables[i];
+            scope.$watch(w, updateDOM);
+          }
         }
       };
     }
